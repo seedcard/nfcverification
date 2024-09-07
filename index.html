@@ -92,7 +92,7 @@
 
     <div class="wallet-info">
         <h3 id="wallet-name">Card Balance</h3>
-        <p id="wallet-balance">Balance: 0.001 BTC</p>
+        <p id="wallet-balance">Balance: 0.00000000 BTC</p>
         <p id="tx-hash">Bitcoin Tx Hash: </p>
         <a id="blockchair-link" href="#" target="_blank" class="blockchair-button">
             View on Blockchair
@@ -101,7 +101,7 @@
 
     <div class="card-info">
         <p id="card-uid">Card Issuer / UID: </p>
-        <p id="card-tag">Card Tag ID: T0000019</p>
+        <p id="card-tag">Card Tag ID: </p>
     </div>
 
     <footer>
@@ -118,12 +118,18 @@
         // Dynamically populate fields using URL parameters
         document.addEventListener('DOMContentLoaded', () => {
             const walletName = getQueryParam('wallet');
+            const balance = getQueryParam('balance') || '0.00000000'; // Default to 0.00000000 BTC
             const txHash = getQueryParam('tx');
             const blockchairUrl = getQueryParam('blockchair');
             const uid = getQueryParam('uid');
+            const tagId = getQueryParam('tag') || 'T0000019'; // Default tag ID
 
             if (walletName) {
                 document.getElementById('wallet-name').innerText = `Card Balance (${walletName})`;
+            }
+
+            if (balance) {
+                document.getElementById('wallet-balance').innerText = `Balance: ${balance} BTC`;
             }
 
             if (txHash) {
@@ -137,7 +143,12 @@
             if (uid) {
                 document.getElementById('card-uid').innerText = `Card Issuer / UID: ${uid}`;
             }
+
+            if (tagId) {
+                document.getElementById('card-tag').innerText = `Card Tag ID: ${tagId}`;
+            }
         });
     </script>
 </body>
 </html>
+
