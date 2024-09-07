@@ -96,7 +96,7 @@
     </header>
 
     <div class="wallet-info">
-        <h3 id="wallet-name">Card Balance</h3>
+        <h3>Card Balance</h3>
         <p id="wallet-balance">Balance: 0.00000000 BTC</p>
         <p id="tx-hash">Bitcoin Tx Hash: None</p>
         <a id="blockchair-link" href="#" target="_blank" class="blockchair-button">
@@ -106,7 +106,7 @@
 
     <div class="card-info">
         <p id="card-uid">Card Issuer / UID: XX12345671234567</p>
-        <p id="card-tag">Card Tag ID: T0000000</p>
+        <p id="card-tag">Card Tag ID: T0000019</p>
     </div>
 
     <footer>
@@ -122,18 +122,13 @@
 
         // Dynamically populate fields using URL parameters
         document.addEventListener('DOMContentLoaded', () => {
-            const walletName = getQueryParam('wallet');
             const balance = getQueryParam('balance') || '0.00000000'; // Default to 0.00000000 BTC
             const txHash = getQueryParam('tx') || 'None'; // Default to 'None'
             const blockchairUrl = getQueryParam('blockchair');
             const uid = getQueryParam('uid') || 'XX12345671234567'; // Default UID
-            const tagId = getQueryParam('tag') || 'T0000000'; // Default tag ID
+            const tagId = getQueryParam('tag') || 'T0000019'; // Default tag ID
 
-            // Check if default values are used and apply grey style if they are
-            if (walletName) {
-                document.getElementById('wallet-name').innerText = `Card Balance (${walletName})`;
-            }
-
+            // Apply grey styling only to default values
             if (balance === '0.00000000') {
                 document.getElementById('wallet-balance').classList.add('default-value');
             }
@@ -161,4 +156,5 @@
     </script>
 </body>
 </html>
+
 
