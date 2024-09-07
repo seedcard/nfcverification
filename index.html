@@ -4,112 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEEDCARD</title>
- <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #000; /* Set background to black */
-        color: #fff; /* Set text color to white */
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
-
-    header {
-        text-align: center;
-        padding: 15px 10px;
-        background-color: #000; /* Black background */
-    }
-
-    header img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .wallet-info {
-        text-align: center;
-        margin: 20px 0;
-    }
-
-    .wallet-info h3 {
-        margin: 10px 0;
-        font-size: 1.5em;
-        color: #fff; /* White text */
-    }
-
-    .wallet-info p {
-        font-size: 1.2em;
-        color: #fff; /* White text */
-    }
-
-    .wallet-info .blockchair-button {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 1em;
-    }
-
-    .wallet-info .blockchair-button:hover {
-        background-color: #0056b3;
-    }
-
-    .card-info {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .card-info p {
-        font-size: 1.2em;
-        color: #fff; /* White text */
-    }
-
-    footer {
-        background-color: #000; /* Black background */
-        color: #fff; /* White text */
-        text-align: center;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-
-    /* Media Query for Mobile Devices */
-    @media (max-width: 600px) {
-        footer {
-            padding: 15px;
-            font-size: 0.9em;
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Set background to black */
+            color: #fff; /* Set text color to white */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-    }
-</style>
 
+        header {
+            text-align: center;
+            padding: 15px 10px;
+            background-color: #000; /* Black background */
+        }
 
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
 
+        .wallet-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .wallet-info h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+            color: #fff; /* White text */
+        }
+
+        .wallet-info p {
+            font-size: 1.2em;
+            color: #fff; /* White text */
+        }
+
+        .wallet-info .blockchair-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .wallet-info .blockchair-button:hover {
+            background-color: #0056b3;
+        }
+
+        .card-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .card-info p {
+            font-size: 1.2em;
+            color: #fff; /* White text */
+        }
+
+        footer {
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 600px) {
+            footer {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <a href="https://imgbb.com/"><img src="https://i.ibb.co/W3znNqd/SEEDCARD-OG-BIP39.png" alt="SEEDCARD-OG-BIP39" border="0"></a>
-
     </header>
 
     <div class="wallet-info">
-        <h3>Card Balance</h3>
-        <p>Balance: 0.001 BTC</p>
-        <p>Bitcoin Tx Hash: 8c8b7d96c54010a44568ba685468827e3591074ae9d8bdc46f57898aaf98dff1 </p>
-        <a href="https://blockchair.com/bitcoin/address/1Moi8EWCJeC9uDZva9Tr2F1hMtAPYGLtGN" target="_blank" class="blockchair-button">
+        <h3 id="wallet-name">Card Balance</h3>
+        <p id="wallet-balance">Balance: 0.001 BTC</p>
+        <p id="tx-hash">Bitcoin Tx Hash: </p>
+        <a id="blockchair-link" href="#" target="_blank" class="blockchair-button">
             View on Blockchair
         </a>
     </div>
 
     <div class="card-info">
-        <p>Card Issuer / UID: MM0464A2CA9C1790</p>
-        <p>Card Tag ID: T0000019</p>
+        <p id="card-uid">Card Issuer / UID: </p>
+        <p id="card-tag">Card Tag ID: T0000019</p>
     </div>
 
     <footer>
         <p> SEEDCARD - Open Source Bitcoin Project</p>
     </footer>
+
+    <script>
+        // Function to get URL parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Dynamically populate fields using URL parameters
+        document.addEventListener('DOMContentLoaded', () => {
+            const walletName = getQueryParam('wallet');
+            const txHash = getQueryParam('tx');
+            const blockchairUrl = getQueryParam('blockchair');
+            const uid = getQueryParam('uid');
+
+            if (walletName) {
+                document.getElementById('wallet-name').innerText = `Card Balance (${walletName})`;
+            }
+
+            if (txHash) {
+                document.getElementById('tx-hash').innerText = `Bitcoin Tx Hash: ${txHash}`;
+            }
+
+            if (blockchairUrl) {
+                document.getElementById('blockchair-link').href = blockchairUrl;
+            }
+
+            if (uid) {
+                document.getElementById('card-uid').innerText = `Card Issuer / UID: ${uid}`;
+            }
+        });
+    </script>
 </body>
 </html>
