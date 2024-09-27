@@ -76,11 +76,6 @@
             box-sizing: border-box;
         }
 
-        /* Grey style for default values */
-        .default-value {
-            color: #808080; /* Grey color */
-        }
-
         /* Media Query for Mobile Devices */
         @media (max-width: 600px) {
             footer {
@@ -92,13 +87,12 @@
 </head>
 <body>
     <header>
-        <a href="https://imgbb.com/"><img src="https://i.ibb.co/W3znNqd/SEEDCARD-OG-BIP39.png" alt="SEEDCARD-OG-BIP39" border="0"></a>
+        <a href="https://imgbb.com/"><img src="https://i.ibb.co/W3znNqd/SEEDCARD-OG-BIP39.png" alt="SEEDCARD Logo" border="0"></a>
     </header>
 
     <div class="wallet-info">
         <h3>Card Balance</h3>
         <p id="wallet-balance">Balance: 0.00000000 BTC</p>
-        <p id="tx-hash">Bitcoin Tx Hash: None</p>
         <a id="blockchair-link" href="#" target="_blank" class="blockchair-button">
             View on Blockchair
         </a>
@@ -123,38 +117,19 @@
         // Dynamically populate fields using URL parameters
         document.addEventListener('DOMContentLoaded', () => {
             const balance = getQueryParam('balance') || '0.00000000'; // Default to 0.00000000 BTC
-            const txHash = getQueryParam('tx') || 'None'; // Default to 'None'
             const blockchairUrl = getQueryParam('blockchair');
             const uid = getQueryParam('uid') || 'XX12345671234567'; // Default UID
             const cardId = getQueryParam('card') || '0000000'; // Default tag ID
 
-            // Apply grey styling only to default values
-            if (balance === '0.00000000') {
-                document.getElementById('wallet-balance').classList.add('default-value');
-            }
             document.getElementById('wallet-balance').innerText = `Balance: ${balance} BTC`;
-
-            if (txHash === 'None') {
-                document.getElementById('tx-hash').classList.add('default-value');
-            }
-            document.getElementById('tx-hash').innerText = `Bitcoin Tx Hash: ${txHash}`;
 
             if (blockchairUrl) {
                 document.getElementById('blockchair-link').href = blockchairUrl;
             }
 
-            if (uid === 'XX12345671234567') {
-                document.getElementById('card-uid').classList.add('default-value');
-            }
             document.getElementById('card-uid').innerText = `Card Issuer / UID: ${uid}`;
-
-            if (cardId === '0000000') {
-                document.getElementById('card-tag').classList.add('default-value');
-            }
             document.getElementById('card-tag').innerText = `Card ID: ${cardId}`;
         });
     </script>
 </body>
 </html>
-
-
