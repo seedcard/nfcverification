@@ -38,8 +38,8 @@
             color: #fff; /* White text */
         }
 
-        .wallet-info p {
-            font-size: 1.2em;
+        .wallet-info p#wallet-balance {
+            font-size: 2em; /* Larger font size for the balance */
             color: #fff; /* White text */
         }
 
@@ -92,7 +92,7 @@
 
     <div class="wallet-info">
         <h3>Card Balance</h3>
-        <p id="wallet-balance">Balance: 0.00000000 BTC</p>
+        <p id="wallet-balance">0.00000000 BTC</p> <!-- Larger font size applied -->
         <a id="blockchair-link" href="#" target="_blank" class="blockchair-button">
             View on Blockchair
         </a>
@@ -121,7 +121,7 @@
             const uid = getQueryParam('uid') || 'XX12345671234567'; // Default UID
             const cardId = getQueryParam('card') || '0000000'; // Default tag ID
 
-            document.getElementById('wallet-balance').innerText = `Balance: ${balance} BTC`;
+            document.getElementById('wallet-balance').innerText = `${balance} BTC`; // Display balance in larger font
 
             if (blockchairUrl) {
                 document.getElementById('blockchair-link').href = blockchairUrl;
