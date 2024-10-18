@@ -33,8 +33,10 @@
         }
 
         .card-info p {
-            font-size: 1.5em; /* Match Card Balance font size */
+            font-size: 1.5em; /* Match font size */
+            font-weight: bold; /* Make text bold */
             color: #fff; /* White text */
+            margin: 10px 0; /* Add margin for spacing */
         }
 
         .wallet-info {
@@ -43,14 +45,17 @@
         }
 
         .wallet-info h3 {
-            margin: 10px 0;
-            font-size: 1.5em;
+            font-size: 1.5em; /* Match font size */
+            font-weight: bold; /* Make text bold */
             color: #fff; /* White text */
+            margin: 10px 0; /* Add margin for spacing */
         }
 
         .wallet-info p#wallet-balance {
-            font-size: 2em; /* Larger font size for the balance */
+            font-size: 1.5em; /* Match font size */
+            font-weight: bold; /* Make text bold */
             color: #fff; /* White text */
+            margin: 10px 0; /* Add margin for spacing */
         }
 
         .wallet-info .blockchair-button {
@@ -74,9 +79,10 @@
         }
 
         .qr-code-section h3 {
-            font-size: 1.5em;
-            color: #fff;
-            margin-bottom: 10px;
+            font-size: 1.5em; /* Match font size */
+            font-weight: bold; /* Make text bold */
+            color: #fff; /* White text */
+            margin-bottom: 10px; /* Add margin for spacing */
         }
 
         .qr-code {
@@ -121,11 +127,12 @@
     </header>
 
     <div class="card-info">
-        <p id="card-uid">Card ID: XX12345671234567</p>
+        <p id="card-uid">Card Issuer / UID: XX12345671234567</p>
     </div>
 
     <div class="wallet-info">
         <h3>Card Balance</h3>
+        <p id="wallet-balance">0.00 BTC</p> <!-- Placeholder for wallet balance -->
         <a id="blockchair-link" href="#" target="_blank" class="blockchair-button">
             View on Blockchair
         </a>
