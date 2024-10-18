@@ -10,37 +10,32 @@
             padding: 0;
             height: 100vh; /* Full viewport height */
             display: flex;
-            flex-direction: column;
             justify-content: center; /* Center content vertically */
             align-items: center; /* Center content horizontally */
             background-color: #000; /* Black background */
         }
 
         .splash-container {
+            position: relative;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start; /* Start content from the top */
+            justify-content: center;
             align-items: center;
-            width: 100%; /* Full width of the container */
-            text-align: center;
-            padding-top: 100px; /* Add padding to bring the image lower */
-            height: 100%; /* Use full height of the viewport */
         }
 
         .splash-image {
-            max-width: 90%; /* Ensure the image doesn't overflow horizontally */
-            height: auto; /* Maintain aspect ratio */
-            margin-bottom: 30px; /* Reduce space between image and button */
+            max-width: 100%; /* Make the image larger */
+            height: auto;
         }
 
         .link-button {
+            position: absolute; /* Absolute position to place the button on top of the image */
+            bottom: 20%; /* Move the button 20% from the bottom of the image */
             padding: 15px 30px; /* Button padding */
             background-color: #ffcc00; /* Button background color */
             color: black; /* Button text color */
             text-decoration: none; /* Remove underline */
             border-radius: 5px; /* Rounded corners */
             font-size: 1.2em; /* Button font size */
-            margin-bottom: auto; /* Push button higher by using margin-bottom */
             transition: background-color 0.3s; /* Smooth transition for hover effect */
         }
 
@@ -51,7 +46,7 @@
         @media (max-width: 600px) {
             /* For smaller devices, adjust image and button size */
             .splash-image {
-                max-width: 80%;
+                max-width: 90%; /* Smaller image for mobile */
             }
 
             .link-button {
