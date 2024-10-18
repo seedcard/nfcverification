@@ -19,16 +19,18 @@
         .splash-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Start content from the top */
             align-items: center;
-            height: 80%; /* Occupies 80% of the viewport height */
+            width: 100%; /* Full width of the container */
             text-align: center;
+            padding-top: 100px; /* Add padding to bring the image lower */
+            height: 100%; /* Use full height of the viewport */
         }
 
         .splash-image {
             max-width: 90%; /* Ensure the image doesn't overflow horizontally */
             height: auto; /* Maintain aspect ratio */
-            margin-bottom: 40px; /* Space between image and button */
+            margin-bottom: 30px; /* Reduce space between image and button */
         }
 
         .link-button {
@@ -38,7 +40,7 @@
             text-decoration: none; /* Remove underline */
             border-radius: 5px; /* Rounded corners */
             font-size: 1.2em; /* Button font size */
-            margin-top: auto; /* Auto margin to move button higher */
+            margin-bottom: auto; /* Push button higher by using margin-bottom */
             transition: background-color 0.3s; /* Smooth transition for hover effect */
         }
 
