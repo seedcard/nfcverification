@@ -27,32 +27,20 @@
             height: auto;
         }
 
-        .card-info {
+        .card-info, .wallet-info, .qr-code-section {
             text-align: center;
-            margin-top: 10px;
+            margin-top: 20px; /* Added margin for spacing */
         }
 
-        .card-info p {
-            font-size: 1.5em; /* Match font size */
-            font-weight: bold; /* Make text bold */
-            color: #fff; /* White text */
-            margin: 10px 0; /* Add margin for spacing */
-        }
-
-        .wallet-info {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .wallet-info h3 {
-            font-size: 1.5em; /* Match font size */
+        h3 {
+            font-size: 1.5em; /* Same font size */
             font-weight: bold; /* Make text bold */
             color: #ffcc00; /* Gold text */
             margin: 10px 0; /* Add margin for spacing */
         }
 
-        .wallet-info p#wallet-balance {
-            font-size: 1.5em; /* Match font size */
+        .card-info p, .wallet-info p#wallet-balance {
+            font-size: 1.5em; /* Same font size */
             font-weight: bold; /* Make text bold */
             color: #ffcc00; /* Gold text */
             margin: 10px 0; /* Add margin for spacing */
@@ -71,18 +59,6 @@
 
         .wallet-info .blockchair-button:hover {
             background-color: #0056b3;
-        }
-
-        .qr-code-section {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .qr-code-section h3 {
-            font-size: 1.5em; /* Match font size */
-            font-weight: bold; /* Make text bold */
-            color: #ffcc00; /* White text */
-            margin-bottom: 10px; /* Add margin for spacing */
         }
 
         .qr-code {
@@ -133,6 +109,7 @@
 
     <div class="wallet-info">
         <h3>Card Balance</h3>
+        <p id="wallet-balance">0.00 BTC</p> <!-- Placeholder for wallet balance -->
         <a id="blockchair-link" href="#" target="_blank" class="blockchair-button">
             View on Blockchair
         </a>
@@ -141,7 +118,6 @@
     <div class="qr-code-section">
         <h3>Top Up Card</h3>
         <div class="qr-code">
-            <!-- QR code wrapped in a link -->
             <a id="qr-link" href="#" target="_blank">
                 <img id="qr-code-image" src="https://via.placeholder.com/150" alt="QR Code">
             </a>
@@ -175,7 +151,7 @@
                 document.getElementById('qr-link').href = qrUrl;
             }
 
-            document.getElementById('card-uid').innerText = ` ${uid}`;
+            document.getElementById('card-uid').innerText = uid;
         });
     </script>
 </body>
