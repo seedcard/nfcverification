@@ -92,7 +92,6 @@
 
     <div class="wallet-info">
         <h3>Card Balance</h3>
-        <p id="wallet-balance">0.00000000 BTC</p> <!-- Larger font size applied -->
         <a id="blockchair-link" href="#" target="_blank" class="blockchair-button">
             View on Blockchair
         </a>
@@ -100,7 +99,7 @@
 
     <div class="card-info">
         <p id="card-uid">Card Issuer / UID: XX12345671234567</p>
-        <p id="card-tag">Card ID: 0000000</p>
+    
     </div>
 
     <footer>
@@ -116,12 +115,12 @@
 
         // Dynamically populate fields using URL parameters
         document.addEventListener('DOMContentLoaded', () => {
-            const balance = getQueryParam('balance') || '0.00000000'; // Default to 0.00000000 BTC
+        
             const blockchairUrl = getQueryParam('blockchair');
             const uid = getQueryParam('uid') || 'XX12345671234567'; // Default UID
-            const cardId = getQueryParam('card') || '0000000'; // Default tag ID
+            
 
-            document.getElementById('wallet-balance').innerText = `${balance} BTC`; // Display balance in larger font
+            
 
             if (blockchairUrl) {
                 document.getElementById('blockchair-link').href = blockchairUrl;
