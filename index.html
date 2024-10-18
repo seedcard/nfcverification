@@ -74,6 +74,10 @@
             margin-top: 20px;
         }
 
+        .qr-code a {
+            display: block;
+        }
+
         .qr-code img {
             width: 150px;
             height: 150px;
@@ -117,7 +121,10 @@
     </div>
 
     <div class="qr-code">
-        <img id="qr-code-image" src="https://i.ibb.co/YjdG85q/qr-code-47.png" alt="qr-code-47">
+        <!-- QR code wrapped in a link -->
+        <a id="qr-link" href="#" target="_blank">
+            <img id="qr-code-image" src="https://via.placeholder.com/150" alt="QR Code">
+        </a>
     </div>
 
     <footer>
@@ -134,10 +141,17 @@
         // Dynamically populate fields using URL parameters
         document.addEventListener('DOMContentLoaded', () => {
             const blockchairUrl = getQueryParam('blockchair');
+            const qrUrl = getQueryParam('qr');
             const uid = getQueryParam('uid') || 'XX12345671234567'; // Default UID
 
             if (blockchairUrl) {
                 document.getElementById('blockchair-link').href = blockchairUrl;
+            }
+
+            if (qrUrl) {
+                // Update the QR code image source and make the link clickable
+                document.getElementById('qr-code-image').src = qrUrl;
+                document.getElementById('qr-link').href = qrUrl;
             }
 
             document.getElementById('card-uid').innerText = `Card Issuer / UID: ${uid}`;
