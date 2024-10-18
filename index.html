@@ -27,6 +27,16 @@
             height: auto;
         }
 
+        .card-info {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .card-info p {
+            font-size: 1.5em; /* Match Card Balance font size */
+            color: #fff; /* White text */
+        }
+
         .wallet-info {
             text-align: center;
             margin: 20px 0;
@@ -58,20 +68,21 @@
             background-color: #0056b3;
         }
 
-        .card-info {
+        .qr-code-section {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
-        .card-info p {
-            font-size: 1.2em;
-            color: #fff; /* White text */
+        .qr-code-section h3 {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 10px;
         }
 
         .qr-code {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .qr-code a {
@@ -109,6 +120,10 @@
         <a href="https://imgbb.com/"><img src="https://i.ibb.co/W3znNqd/SEEDCARD-OG-BIP39.png" alt="SEEDCARD Logo" border="0"></a>
     </header>
 
+    <div class="card-info">
+        <p id="card-uid">Card Issuer / UID: XX12345671234567</p>
+    </div>
+
     <div class="wallet-info">
         <h3>Card Balance</h3>
         <a id="blockchair-link" href="#" target="_blank" class="blockchair-button">
@@ -116,15 +131,14 @@
         </a>
     </div>
 
-    <div class="card-info">
-        <p id="card-uid">Card Issuer / UID: XX12345671234567</p>
-    </div>
-
-    <div class="qr-code">
-        <!-- QR code wrapped in a link -->
-        <a id="qr-link" href="#" target="_blank">
-            <img id="qr-code-image" src="https://via.placeholder.com/150" alt="QR Code">
-        </a>
+    <div class="qr-code-section">
+        <h3>Top Up Card</h3>
+        <div class="qr-code">
+            <!-- QR code wrapped in a link -->
+            <a id="qr-link" href="#" target="_blank">
+                <img id="qr-code-image" src="https://via.placeholder.com/150" alt="QR Code">
+            </a>
+        </div>
     </div>
 
     <footer>
