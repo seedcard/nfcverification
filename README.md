@@ -2,7 +2,7 @@ Proof of concept for SEEDCARD verification
 
 1. Cardholder taps SEEDCARD with NFC enabled phone to verify card.
 
-2. Card NFC tag is programmed with redirect URL - example https://seedcard.github.io/nfcverification/
+2. Card NFC tag is programmed with redirect URL - example https://seedcard.github.io/nfcverificationpoc/
 
 3. Card holder clicks ENTER button to access SEEDCARD:
    
